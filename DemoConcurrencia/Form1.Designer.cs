@@ -30,11 +30,11 @@
         {
             fileSystemWatcher1 = new FileSystemWatcher();
             splitContainer1 = new SplitContainer();
+            BtnCancelarHilo = new Button();
             BtnTarea = new Button();
             BtnHilo = new Button();
             BtnSecuencial = new Button();
             TxtResultado = new TextBox();
-            BtnCancelarHilo = new Button();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -68,6 +68,16 @@
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 0;
             // 
+            // BtnCancelarHilo
+            // 
+            BtnCancelarHilo.Location = new Point(27, 178);
+            BtnCancelarHilo.Name = "BtnCancelarHilo";
+            BtnCancelarHilo.Size = new Size(207, 42);
+            BtnCancelarHilo.TabIndex = 3;
+            BtnCancelarHilo.Text = "Cancelar Hilo";
+            BtnCancelarHilo.UseVisualStyleBackColor = true;
+            BtnCancelarHilo.Click += BtnCancelar_Click;
+            // 
             // BtnTarea
             // 
             BtnTarea.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -77,7 +87,6 @@
             BtnTarea.TabIndex = 2;
             BtnTarea.Text = "IniciarTarea";
             BtnTarea.UseVisualStyleBackColor = true;
-          
             // 
             // BtnHilo
             // 
@@ -108,16 +117,7 @@
             TxtResultado.Name = "TxtResultado";
             TxtResultado.Size = new Size(530, 450);
             TxtResultado.TabIndex = 1;
-            // 
-            // BtnCancelarHilo
-            // 
-            BtnCancelarHilo.Location = new Point(27, 178);
-            BtnCancelarHilo.Name = "BtnCancelarHilo";
-            BtnCancelarHilo.Size = new Size(207, 42);
-            BtnCancelarHilo.TabIndex = 3;
-            BtnCancelarHilo.Text = "Cancelar Hilo";
-            BtnCancelarHilo.UseVisualStyleBackColor = true;
-            BtnCancelarHilo.Click += BtnCancelar_Click;
+            TxtResultado.TextChanged += TxtResultado_TextChanged;
             // 
             // Form1
             // 

@@ -61,7 +61,7 @@ namespace DemoConcurrencia
 
                     ActualizarResultado("Hilos cancelados");
                 }
-      
+
             });
             Hilo1.Start();
         }
@@ -71,35 +71,40 @@ namespace DemoConcurrencia
             _cts = new CancellationTokenSource();
             var token = _cts.Token;
 
-           await Task.Run(async () =>
-            {
-                try
-                {
-                    ActualizarResultado($"Iniciando Task {Task.CurrentId}..");
-                    for (int i = 0; i < 5; i++)
-                    {
-                        token.ThrowIfCancellationRequested();
+            await Task.Run(async () =>
+             {
+                 try
+                 {
+                     ActualizarResultado($"Iniciando Task {Task.CurrentId}..");
+                     for (int i = 0; i < 5; i++)
+                     {
+                         token.ThrowIfCancellationRequested();
 
-                        Thread.Sleep(2000);
-                        ActualizarResultado($" Actividad en tarea {Thread.CurrentThread.ManagedThreadId} {i + 1}");
-                    }
-                    Thread.Sleep(5000);
-                    ActualizarResultado($"Task {Task.CurrentId} Completada");
+                         Thread.Sleep(2000);
+                         ActualizarResultado($" Actividad en tarea {Thread.CurrentThread.ManagedThreadId} {i + 1}");
+                     }
+                     Thread.Sleep(5000);
+                     ActualizarResultado($"Task {Task.CurrentId} Completada");
 
-                }
-                catch (OperationCanceledException)
-                {
+                 }
+                 catch (OperationCanceledException)
+                 {
 
-                    ActualizarResultado("tarea cancelada");
-                }
-                    
-                
-            });
+                     ActualizarResultado("tarea cancelada");
+                 }
+
+
+             });
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-        _cts?.Cancel();
+            _cts?.Cancel();
+        }
+
+        private void TxtResultado_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
